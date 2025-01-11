@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkas181gwvji1"]
+
+[ext_resource type="PackedScene" uid="uid://cs4cx1ocfxcgt" path="res://scenes/entities/enemy_paddle.tscn" id="1_0lthp"]
+[ext_resource type="PackedScene" uid="uid://ct5ft3ehtbiio" path="res://scenes/entities/player_paddle.tscn" id="2_huura"]
+[ext_resource type="PackedScene" uid="uid://cyumudmyxfcr1" path="res://scenes/entities/ball.tscn" id="3_wooka"]
+
+[node name="Level" type="Node2D"]
+
+[node name="EnemyPaddle" parent="." instance=ExtResource("1_0lthp")]
+position = Vector2(770, 300)
+
+[node name="PlayerPaddle" parent="." instance=ExtResource("2_huura")]
+position = Vector2(30, 300)
+
+[node name="Ball" parent="." instance=ExtResource("3_wooka")]
+position = Vector2(400, 300)
