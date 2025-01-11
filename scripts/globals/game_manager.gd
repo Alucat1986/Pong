@@ -12,4 +12,4 @@ func _process(_delta: float) -> void:
 
 
 func startGame() -> void:
-	pass
+	get_tree().change_scene_to_file(("res://scenes/level/level.tscn"))
