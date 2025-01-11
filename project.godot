@@ -11,5 +11,16 @@ config_version=5
 [application]
 
 config/name="Pong"
+config/description="Following the video tutorial \"[Finite State Machine in Godot 4 in Under 10 Minutes](https://www.youtube.com/watch?v=ow_Lum-Agbs)\" from \"[Bitlytic](https://www.youtube.com/@Bitlytic)\" as well as \"[Starter state machine in Godot 4](https://www.youtube.com/watch?v=oqFbZoA2lnU)\" from \"[The Shaggy Dev](https://www.youtube.com/@TheShaggyDev)\" I tried to implement a state machine for the player's paddle input, which might look overkill for a pong game but I guess it's easier to try it out with a simpler game first."
+config/version="1.0"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=800
+window/size/viewport_height=600
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
