@@ -7,8 +7,8 @@ radius = 16.0312
 
 [node name="Ball" type="RigidBody2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_dtqyg")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_6kh1c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_dtqyg")
