@@ -1,0 +1,4 @@
+# Pong [_GODOT4.3_]
+I quickly scrambled together this Pong clone, to try out how a finite state machine in Godot works.
+
+Following the video tutorial "[Finite State Machine in Godot 4 in Under 10 Minutes](https://www.youtube.com/watch?v=ow_Lum-Agbs)" from "[Bitlytic](https://www.youtube.com/@Bitlytic)" as well as "[Starter state machine in Godot 4](https://www.youtube.com/watch?v=oqFbZoA2lnU)" from "[The Shaggy Dev](https://www.youtube.com/@TheShaggyDev)" I tried to implement a state machine for the player's paddle input, which might look overkill for a pong game but I guess it's easier to try it out with a simpler game first.
