@@ -13,6 +13,8 @@ radius = 16.0312
 [node name="Ball" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_qdg08")
 gravity_scale = 0.0
+linear_damp_mode = 1
+angular_damp_mode = 1
 script = ExtResource("1_b2nsy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
