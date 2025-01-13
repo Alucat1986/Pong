@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkas181gwvji1"]
+[gd_scene load_steps=5 format=3 uid="uid://dkas181gwvji1"]
 
 [ext_resource type="PackedScene" uid="uid://cs4cx1ocfxcgt" path="res://scenes/entities/enemy_paddle.tscn" id="1_0lthp"]
 [ext_resource type="PackedScene" uid="uid://ct5ft3ehtbiio" path="res://scenes/entities/player_paddle.tscn" id="2_huura"]
 [ext_resource type="PackedScene" uid="uid://cyumudmyxfcr1" path="res://scenes/entities/ball.tscn" id="3_wooka"]
+[ext_resource type="PackedScene" uid="uid://f0701t3chnnj" path="res://scenes/level/wall.tscn" id="4_jfayc"]
 
 [node name="Level" type="Node2D"]
 
@@ -14,3 +15,11 @@ position = Vector2(30, 300)
 
 [node name="Ball" parent="." instance=ExtResource("3_wooka")]
 position = Vector2(400, 300)
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="UpperWall" parent="Walls" instance=ExtResource("4_jfayc")]
+rotation = 3.14159
+
+[node name="LowerWall" parent="Walls" instance=ExtResource("4_jfayc")]
+position = Vector2(0, 600)
