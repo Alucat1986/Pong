@@ -1,15 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://ct5ft3ehtbiio"]
+[gd_scene load_steps=8 format=3 uid="uid://ct5ft3ehtbiio"]
 
 [ext_resource type="Texture2D" uid="uid://d2kv34vhbn0bt" path="res://assets/Paddle.png" id="1_68l1n"]
+[ext_resource type="Script" path="res://scripts/entities/player_paddle.gd" id="1_nciik"]
+[ext_resource type="Script" path="res://scripts/entities/player_state_machine.gd" id="2_qmc5p"]
+[ext_resource type="Script" path="res://scripts/entities/player_idle.gd" id="4_pjlp2"]
+[ext_resource type="Script" path="res://scripts/entities/player_move_up.gd" id="5_7et5e"]
+[ext_resource type="Script" path="res://scripts/entities/player_move_down.gd" id="6_713p3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xx7ki"]
 size = Vector2(8, 96)
 
 [node name="PlayerPaddle" type="CharacterBody2D"]
 motion_mode = 1
+script = ExtResource("1_nciik")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_xx7ki")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_68l1n")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initialState")]
+script = ExtResource("2_qmc5p")
+initialState = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_pjlp2")
+
+[node name="MoveUp" type="Node" parent="StateMachine"]
+script = ExtResource("5_7et5e")
+
+[node name="MoveDown" type="Node" parent="StateMachine"]
+script = ExtResource("6_713p3")
