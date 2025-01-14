@@ -10,7 +10,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xx7ki"]
 size = Vector2(8, 96)
 
-[node name="PlayerPaddle" type="CharacterBody2D"]
+[node name="PlayerPaddle" type="CharacterBody2D" groups=["Paddles"]]
 motion_mode = 1
 script = ExtResource("1_nciik")
 
