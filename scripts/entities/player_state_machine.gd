@@ -25,10 +25,6 @@ func processPhysics(delta: float) -> void:
 	if currentState:
 		currentState.physicsUpdate(delta)
 
-func processInput(event: InputEvent) -> void:
-	if currentState:
-		currentState.inputUpdate(event)
-
 func onChildTransition(stateName : State, newStateName : String) -> void:
 	if stateName != currentState:
 		return

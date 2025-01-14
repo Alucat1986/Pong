@@ -1,14 +1,16 @@
 extends State
 
-func inputUpdate(event: InputEvent) -> void:
-	var moveUp = event.is_action_pressed('move_up')
-	var moveDown = event.is_action_pressed('move_down')
+func enter() -> void:
+	parent.velocity.y = 1
+
+func exit() -> void:
+	parent.velocity.y = 0
+
+func update(_delta: float) -> void:
+	var moveUp : bool = Input.is_action_pressed("move_up")
+	var moveDown : bool = Input.is_action_pressed("move_down")
 	
-	if moveUp and moveDown:
-		transition.emit(self, "Idle")
-		return
-	
-	if not moveUp and not moveDown:
+	if (moveUp and moveDown) or (not moveUp and not moveDown):
 		transition.emit(self, "Idle")
 		return
 	
@@ -17,7 +19,7 @@ func inputUpdate(event: InputEvent) -> void:
 	elif moveDown:
 		return
 
-func processPhysics(delta: float) -> void:
-	parent.velocity.y = parent.SPEED * delta
-	print ("We are in move_down physicsUpdate")
-	parent.move_and_slide()
+func physicsUpdate(delta: float) -> void:
+	var collision = parent.move_and_collide(parent.velocity * parent.SPEED * delta)
+	if collision:
+		parent.velocity.y = 0
