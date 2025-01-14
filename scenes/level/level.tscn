@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkas181gwvji1"]
+[gd_scene load_steps=7 format=3 uid="uid://dkas181gwvji1"]
 
 [ext_resource type="PackedScene" uid="uid://cs4cx1ocfxcgt" path="res://scenes/entities/enemy_paddle.tscn" id="1_0lthp"]
+[ext_resource type="Script" path="res://scripts/level/level.gd" id="1_w36og"]
 [ext_resource type="PackedScene" uid="uid://ct5ft3ehtbiio" path="res://scenes/entities/player_paddle.tscn" id="2_huura"]
 [ext_resource type="PackedScene" uid="uid://cyumudmyxfcr1" path="res://scenes/entities/ball.tscn" id="3_wooka"]
-[ext_resource type="PackedScene" uid="uid://f0701t3chnnj" path="res://scenes/level/wall.tscn" id="4_jfayc"]
+[ext_resource type="PackedScene" uid="uid://f0701t3chnnj" path="res://scenes/level/top_and_bottom_wall.tscn" id="4_avsyg"]
+[ext_resource type="PackedScene" uid="uid://bqm43ar6rk0f8" path="res://scenes/level/left_and_right_wall.tscn" id="5_uu7p5"]
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_w36og")
 
 [node name="EnemyPaddle" parent="." instance=ExtResource("1_0lthp")]
 position = Vector2(770, 300)
@@ -18,8 +21,17 @@ position = Vector2(400, 300)
 
 [node name="Walls" type="Node" parent="."]
 
-[node name="UpperWall" parent="Walls" instance=ExtResource("4_jfayc")]
-rotation = 3.14159
+[node name="TopWall" parent="Walls" instance=ExtResource("4_avsyg")]
+position = Vector2(0, -10)
 
-[node name="LowerWall" parent="Walls" instance=ExtResource("4_jfayc")]
-position = Vector2(0, 600)
+[node name="BottomWall" parent="Walls" instance=ExtResource("4_avsyg")]
+position = Vector2(0, 610)
+
+[node name="LeftWall" parent="Walls" instance=ExtResource("5_uu7p5")]
+position = Vector2(-10, 0)
+
+[node name="RightWall" parent="Walls" instance=ExtResource("5_uu7p5")]
+position = Vector2(810, 0)
+
+[connection signal="body_exited" from="Walls/LeftWall" to="." method="_on_left_wall_body_exited"]
+[connection signal="body_exited" from="Walls/RightWall" to="." method="_on_right_wall_body_exited"]
