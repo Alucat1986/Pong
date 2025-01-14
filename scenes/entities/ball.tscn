@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyumudmyxfcr1"]
+[gd_scene load_steps=6 format=3 uid="uid://cyumudmyxfcr1"]
 
 [ext_resource type="Script" path="res://scripts/entities/ball.gd" id="1_b2nsy"]
 [ext_resource type="Texture2D" uid="uid://fmb2jvjj6oa3" path="res://assets/Ball.png" id="1_dtqyg"]
+[ext_resource type="AudioStream" uid="uid://ds4v6yodr3qyi" path="res://assets/sounds/bounce.wav" id="3_mpmif"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qdg08"]
 friction = 0.0
@@ -10,9 +11,12 @@ bounce = 1.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_6kh1c"]
 radius = 16.0312
 
-[node name="Ball" type="RigidBody2D"]
+[node name="Ball" type="RigidBody2D" groups=["Ball"]]
 physics_material_override = SubResource("PhysicsMaterial_qdg08")
 gravity_scale = 0.0
+continuous_cd = 1
+contact_monitor = true
+max_contacts_reported = 1
 linear_damp_mode = 1
 angular_damp_mode = 1
 script = ExtResource("1_b2nsy")
@@ -22,3 +26,8 @@ shape = SubResource("CircleShape2D_6kh1c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_dtqyg")
+
+[node name="Collide" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mpmif")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
