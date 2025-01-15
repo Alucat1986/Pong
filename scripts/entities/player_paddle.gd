@@ -13,5 +13,5 @@ func _physics_process(delta: float) -> void:
 	stateMachine.processPhysics(delta)
 
 func _process(delta: float) -> void:
-	#position.x = 30
+	position.x = 30
 	stateMachine.process(delta)
