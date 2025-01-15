@@ -14,6 +14,7 @@ radius = 16.0312
 [node name="Ball" type="RigidBody2D" groups=["Ball"]]
 physics_material_override = SubResource("PhysicsMaterial_qdg08")
 gravity_scale = 0.0
+lock_rotation = true
 continuous_cd = 1
 contact_monitor = true
 max_contacts_reported = 1
