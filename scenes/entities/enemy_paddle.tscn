@@ -7,6 +7,7 @@ size = Vector2(8, 96)
 
 [node name="EnemyPaddle" type="CharacterBody2D" groups=["Paddles"]]
 motion_mode = 1
+platform_on_leave = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_xx7ki")
