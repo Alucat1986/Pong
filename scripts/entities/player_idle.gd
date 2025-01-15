@@ -4,8 +4,8 @@ func enter() -> void:
 	parent.velocity = Vector2.ZERO
 
 func update(_delta: float) -> void:
-	var moveUp : bool = Input.is_action_just_pressed("move_up")
-	var moveDown : bool = Input.is_action_just_pressed("move_down")
+	var moveUp : bool = Input.is_action_pressed("move_up")
+	var moveDown : bool = Input.is_action_pressed("move_down")
 	
 	if moveUp and moveDown:
 		return
